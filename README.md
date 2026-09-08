@@ -9,6 +9,7 @@ index.html                  화면 목록 / 흐름 / 유효성 규칙 요약 (�
 assets/css/s2b.css          공통 스타일 (s2b.kr 룩앤필)
 assets/js/s2b.js            알럿, 벨리데이션, 이메일 인증, 개인정보 동의 팝업, S2B_API 스텁
 assets/img/                 s2b.kr 현재 CI 이미지
+assets/fonts/               Noto Sans KR woff2 (400/500/700, 내부망용 로컬 글꼴)
 pages/*.html                화면 11개 (팝업 단위)
 test/check.html             벨리데이션 자체점검 (브라우저에서 열면 PASS/FAIL 출력)
 docs/                       기획검토 · 백로그 · 형상관리 경로

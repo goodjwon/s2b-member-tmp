@@ -1,4 +1,8 @@
 /* S2B 개인회원 사전가입 마이크로사이트 - 공통 스타일 (s2b.kr 룩앤필 기준) */
+/* 내부망 대응: Noto Sans KR 로컬 글꼴 (assets/fonts). 외부 CDN 미참조 */
+@font-face{font-family:"Noto Sans KR";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/noto-sans-kr-400.woff2") format("woff2")}
+@font-face{font-family:"Noto Sans KR";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/noto-sans-kr-500.woff2") format("woff2")}
+@font-face{font-family:"Noto Sans KR";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/noto-sans-kr-700.woff2") format("woff2")}
 :root{
   --navy:#0d2f6f;      /* 상단바/타이틀 */
   --blue:#2f6fd0;      /* 주요 버튼/포인트 */
