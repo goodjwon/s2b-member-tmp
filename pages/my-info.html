@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>나의 가입정보 조회 | S2B 개인회원 사전가입</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/s2b.css">
+</head>
+<body>
+<div class="popup">
+  <div class="popup-head">
+    <div class="logo"><img src="../assets/img/sub_ci.gif" alt="S2B"><span>행정안전부 고시 제2023-16호<br><img src="../assets/img/ci_s2b_3.gif" alt="교육기관전자조달시스템"></span></div>
+    <button type="button" class="close" onclick="closePopup()" aria-label="닫기">×</button>
+  </div>
+  <div class="popup-title">나의 가입정보 조회</div>
+  <form class="popup-body" id="myInfoForm" novalidate>
+    <p class="tit">이메일 인증</p>
+    <p class="desc">개인회원 가입시 등록하신 이메일 주소를 입력해 주세요. 인증 완료 시 가입정보 조회 결과 화면으로 이동합니다.</p>
+    <table class="form-tbl">
+      <tr>
+        <th>이메일<span class="req">*</span></th>
+        <td>
+          <div class="field">
+            <input type="email" class="inp" name="email" data-role="email" placeholder="example@domain.com" autocomplete="off" style="max-width:270px">
+            <button type="button" class="btn sm" data-role="btn-send">인증메일 발송</button>
+          </div>
+          <span class="msg" data-role="email-msg"></span>
+          <span class="dev-note hidden" data-role="dev-code"></span>
+        </td>
+      </tr>
+      <tr class="hidden" data-role="code-row">
+        <th>인증코드<span class="req">*</span></th>
+        <td>
+          <div class="field">
+            <input type="text" class="inp short" name="authCode" data-role="code" placeholder="이메일로 받은 6자리 코드" maxlength="6" autocomplete="off">
+            <span class="timer" data-role="timer"></span>
+            <button type="button" class="btn sm primary" data-role="btn-verify">인증</button>
+          </div>
+          <span class="msg" data-role="code-msg">인증코드는 5분간 유효합니다. 숫자+영문만 입력 가능</span>
+        </td>
+      </tr>
+    </table>
+    <div class="center" style="margin-top:12px"><!-- [JSP] 개발용 링크, 제거 -->
+      <span class="dev-note">(개발용) 인증 완료 시 이동 : <a href="my-info-result-demand.html"><u>수요기관 결과</u></a> / <a href="my-info-result-supplier.html"><u>공급업체 결과</u></a></span>
+    </div>
+  </form>
+  <div class="popup-foot">
+    <button type="button" class="btn" onclick="closePopup()">닫기</button>
+  </div>
+</div>
+<script src="../assets/js/s2b.js"></script>
+<script>
+var f = document.getElementById('myInfoForm');
+f.addEventListener('submit', function (e) { e.preventDefault(); });
+/* [JSP] 인증 완료 시 결과 조회 Action 으로 이동 (예: myInfoResult.do?email=...) -
+   서버가 기관구분에 따라 수요기관/공급업체 결과 JSP 를 선택. 이메일은 세션 인증값 사용 */
+initEmailAuth(f, { onVerified: function () { location.href = 'my-info-result-demand.html'; } });
+</script>
+</body>
+</html>

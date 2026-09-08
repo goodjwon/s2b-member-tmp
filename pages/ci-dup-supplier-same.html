@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공급업체 CI중복(동일업체) | S2B 개인회원 사전가입</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/s2b.css">
+</head>
+<body>
+<div class="popup">
+  <div class="popup-head">
+    <div class="logo"><img src="../assets/img/sub_ci.gif" alt="S2B"><span>행정안전부 고시 제2023-16호<br><img src="../assets/img/ci_s2b_3.gif" alt="교육기관전자조달시스템"></span></div>
+  </div>
+  <div class="popup-title">개인회원 사전가입</div>
+  <div class="popup-body">
+    <ol class="steps"><li class="on">휴대폰인증</li><li>회원정보입력</li><li>가입완료</li></ol>
+    <p class="big-msg">이미 가입된 개인회원입니다.</p>
+    <p class="center desc">휴대폰 본인인증(CI) 결과, 아래와 같이 가입된 개인회원 정보가 확인되었습니다.</p>
+    <!-- [JSP] CI 대조로 찾은 기가입 정보 바인딩. ID/이메일 마스킹(첫문자·마지막문자 제외)은 서버 처리 -->
+    <table class="info-tbl">
+      <tr><th>등록업체명</th><td>공급업체A</td></tr>
+      <tr><th>ID</th><td>yh**34</td></tr>
+      <tr><th>E-MAIL</th><td>yh**34@gmail.com</td></tr>
+      <tr><th>가입일시</th><td>2026-09-17 15:34</td></tr>
+    </table>
+    <div class="notice"><p>- 현재 로그인하신 <b>[공급업체A]</b> 에 이미 가입된 개인회원입니다. 동일 공급업체 내 중복가입은 불가합니다.</p><p>- 가입하신 정보의 수정 및 탈퇴는 2027년 1월 Pre 오픈 후 가능합니다.</p></div>
+  </div>
+  <div class="popup-foot">
+    <button type="button" class="btn primary" onclick="goMain()">닫기</button>
+  </div>
+</div>
+<script src="../assets/js/s2b.js"></script>
+</body>
+</html>

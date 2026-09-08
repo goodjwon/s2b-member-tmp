@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>휴대폰 인증 | S2B 개인회원 사전가입</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/s2b.css">
+</head>
+<body>
+<div class="popup">
+  <div class="popup-head">
+    <div class="logo"><img src="../assets/img/sub_ci.gif" alt="S2B"><span>행정안전부 고시 제2023-16호<br><img src="../assets/img/ci_s2b_3.gif" alt="교육기관전자조달시스템"></span></div>
+  </div>
+  <div class="popup-title">개인회원 사전가입</div>
+  <div class="popup-body">
+    <ol class="steps"><li class="on">휴대폰인증</li><li>회원정보입력</li><li>가입완료</li></ol>
+    <p class="tit center">휴대폰 본인인증</p>
+    <p class="desc center">개인회원 가입을 위해 휴대폰 본인인증을 진행합니다.<br>인증된 이름과 휴대폰번호는 회원정보에 자동 입력되며 수정할 수 없습니다.</p>
+    <div class="auth-box">
+      <div class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg></div>
+      <button type="button" class="btn primary big" id="btnKcb">휴대폰인증</button>
+      <p class="desc" style="margin:14px 0 0;font-size:12px">KCB 휴대폰 본인인증 팝업이 호출됩니다.</p>
+    </div>
+    <div class="center"><!-- [JSP] 개발용 링크, 제거 -->
+      <span class="dev-note">(개발용) 인증 후 CI 중복 분기 화면 :
+        <a href="ci-dup-demand.html"><u>수요기관 CI중복</u></a> /
+        <a href="ci-dup-supplier-same.html"><u>공급업체 CI중복(동일업체)</u></a> /
+        <a href="ci-dup-supplier-other.html"><u>공급업체 CI중복(타업체)</u></a></span>
+    </div>
+  </div>
+  <div class="popup-foot">
+    <button type="button" class="btn" onclick="closePopup()">닫기</button>
+  </div>
+</div>
+<script src="../assets/js/s2b.js"></script>
+<script>
+/* [JSP] KCB 휴대폰 본인인증 팝업 호출 위치.
+   KCB 콜백에서 서버(예: kcbResult.do)가 CI 대조 후 아래로 분기:
+     - CI 중복 없음            → member-form (회원정보입력)
+     - 수요기관 CI 중복        → ci-dup-demand
+     - 공급업체 동일업체 중복  → ci-dup-supplier-same
+     - 공급업체 타업체 중복    → ci-dup-supplier-other
+   데모에서는 확인 후 회원정보입력으로 이동 */
+document.getElementById('btnKcb').onclick = function () {
+  s2bConfirm('KCB 휴대폰 본인인증 팝업을 호출합니다.\n(데모) 인증 성공으로 진행하시겠습니까?', function () {
+    location.href = 'member-form.html';
+  });
+};
+</script>
+</body>
+</html>

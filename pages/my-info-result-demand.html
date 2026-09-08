@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>나의 가입정보 조회 결과(수요기관) | S2B 개인회원 사전가입</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/s2b.css">
+</head>
+<body>
+<div class="popup">
+  <div class="popup-head">
+    <div class="logo"><img src="../assets/img/sub_ci.gif" alt="S2B"><span>행정안전부 고시 제2023-16호<br><img src="../assets/img/ci_s2b_3.gif" alt="교육기관전자조달시스템"></span></div>
+    <button type="button" class="close" onclick="closePopup()" aria-label="닫기">×</button>
+  </div>
+  <div class="popup-title">나의 가입정보 조회 결과</div>
+  <div class="popup-body">
+    <p class="tit">가입정보</p>
+    <!-- [JSP] 인증 이메일로 조회한 가입정보 바인딩 (마스킹 없음) -->
+    <table class="info-tbl">
+      <tr><th>등록기관명</th><td>더케이교직원나라</td></tr>
+      <tr><th>ID</th><td>yh0134</td></tr>
+      <tr><th>휴대폰번호</th><td>010-8896-0134</td></tr>
+      <tr><th>E-MAIL</th><td>yh0134@gmail.com</td></tr>
+      <tr><th>가입일시</th><td>2026-09-17 15:34</td></tr>
+    </table>
+    <p class="sub-tit">계정관련 안내 및 정보수정 방법 안내</p>
+    <div class="notice">
+      <p>- 가입하신 계정은 현 S2B에서는 사용불가하고 2027년 1월 Pre오픈시 신S2B(S2B 2.0)에서 로그인이 가능합니다.</p>
+      <p>- 정보의 수정 및 탈퇴는 2027년 1월 Pre 오픈시 가능합니다.</p>
+    </div>
+  </div>
+  <div class="popup-foot">
+    <button type="button" class="btn primary" onclick="closePopup()">닫기</button>
+  </div>
+</div>
+<script src="../assets/js/s2b.js"></script>
+</body>
+</html>

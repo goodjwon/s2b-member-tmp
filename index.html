@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S2B 개인회원 사전가입 - 화면 목록</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/s2b.css">
+</head>
+<body>
+<div class="idx">
+  <div class="top-bar">S2B 개인회원 사전가입 (수요기관/공급업체) - 화면 목록 <span style="font-weight:400;font-size:13px;opacity:.8;margin-left:10px">화면기획서 v0.4 (2026.09.07) 기준</span></div>
+  <div class="box">
+    <p class="desc">모든 화면은 S2B 로그인 후 호출되는 팝업 기준입니다. 이 페이지는 개발/검수용 화면 목록이며 실제 서비스에는 포함되지 않습니다.<br>
+    “닫기” 버튼은 데모에서 이 목록으로 돌아오며, 개발 시 <code>closePopup()</code> / <code>goMain()</code> (assets/js/s2b.js) 을 window.close 또는 S2B 메인 이동으로 교체하면 됩니다.</p>
+
+    <h2>1. 최초가입 (기관 내 개인회원 0명)</h2>
+    <table>
+      <tr><th style="width:40px">No</th><th style="width:220px">화면</th><th>흐름 / 링크</th><th style="width:230px">파일</th></tr>
+      <tr><td>1</td><td><a href="pages/intro.html">개인회원 사전가입 안내 팝업</a></td><td>확인 → 휴대폰인증</td><td><code>pages/intro.html</code></td></tr>
+      <tr><td>2</td><td><a href="pages/phone-auth.html">휴대폰인증</a></td><td>휴대폰인증(KCB) → 회원정보입력 / CI 중복 시 아래 7~9번 화면으로 분기</td><td><code>pages/phone-auth.html</code></td></tr>
+      <tr><td>3</td><td><a href="pages/member-form.html">회원정보입력</a></td><td>이전 → 휴대폰인증(초기화) / 다음 → 가입완료. 유효성 검사·알럿·개인정보수집 본문 팝업 포함</td><td><code>pages/member-form.html</code></td></tr>
+      <tr><td>4</td><td>개인정보수집/이용 동의 본문</td><td>회원정보입력 내 “보기” 클릭 시 레이어 팝업. 하단까지 스크롤해야 동의 버튼 활성화</td><td><code>member-form.html</code> 내 <code>#privacyTpl</code></td></tr>
+      <tr><td>5</td><td><a href="pages/complete.html">가입완료</a></td><td>닫기 → S2B 메인 / 가입결과조회 → 나의 가입정보 조회</td><td><code>pages/complete.html</code></td></tr>
+    </table>
+
+    <h2>2. 추가가입 (기관 내 개인회원 1명 이상)</h2>
+    <table>
+      <tr><th style="width:40px">No</th><th style="width:220px">화면</th><th>흐름 / 링크</th><th style="width:230px">파일</th></tr>
+      <tr><td>6</td><td><a href="pages/status.html">개인회원 사전가입 현황안내 팝업</a></td><td>예 → 창닫힘 / 아니오 → 휴대폰인증 / 조회 → 나의 가입정보 조회. 닫기 버튼 없음</td><td><code>pages/status.html</code></td></tr>
+      <tr><td>7</td><td><a href="pages/ci-dup-demand.html">휴대폰인증 CI중복 - 수요기관</a></td><td>닫기 → S2B 메인</td><td><code>pages/ci-dup-demand.html</code></td></tr>
+      <tr><td>8</td><td><a href="pages/ci-dup-supplier-same.html">휴대폰인증 CI중복 - 공급업체(동일업체)</a></td><td>닫기 → S2B 메인</td><td><code>pages/ci-dup-supplier-same.html</code></td></tr>
+      <tr><td>9</td><td><a href="pages/ci-dup-supplier-other.html">휴대폰인증 CI중복 - 공급업체(타업체)</a></td><td>예 → 소속 등록 후 S2B 메인 / 아니오 → S2B 메인</td><td><code>pages/ci-dup-supplier-other.html</code></td></tr>
+      <tr><td colspan="4" style="color:#888">CI 중복 없음일 경우 회원정보입력(3번) 이후 흐름 동일</td></tr>
+    </table>
+
+    <h2>3. 나의 가입정보 조회</h2>
+    <table>
+      <tr><th style="width:40px">No</th><th style="width:220px">화면</th><th>흐름 / 링크</th><th style="width:230px">파일</th></tr>
+      <tr><td>10</td><td><a href="pages/my-info.html">나의 가입정보 조회 (이메일 인증)</a></td><td>인증메일 발송 → 인증코드 입력 → 인증완료 시 결과 화면으로 이동</td><td><code>pages/my-info.html</code></td></tr>
+      <tr><td>11</td><td><a href="pages/my-info-result-demand.html">조회 결과 - 수요기관</a></td><td>닫기 → 창닫힘</td><td><code>pages/my-info-result-demand.html</code></td></tr>
+      <tr><td>12</td><td><a href="pages/my-info-result-supplier.html">조회 결과 - 공급업체 (N개 업체)</a></td><td>닫기 → 창닫힘</td><td><code>pages/my-info-result-supplier.html</code></td></tr>
+    </table>
+
+    <h2>4. 회원정보입력 유효성 검사 요약 (assets/js/s2b.js)</h2>
+    <table>
+      <tr><th style="width:130px">항목</th><th>규칙</th><th style="width:300px">메시지</th></tr>
+      <tr><td>아이디</td><td>영문+숫자 6~15자. 대문자 입력 시 소문자 전환, 한글/특수문자/공백 자동 제거. 실시간 검증. 중복확인 필수(아이디 수정 시 재확인). 데모 기가입 ID: admin, s2buser, yh0134, test01</td><td>형식 오류 / 사용 가능한 아이디 형식<br>알럿: 정상·미입력·중복</td></tr>
+      <tr><td>비밀번호</td><td>영문+숫자+특수문자 포함 8~20자. 대문자→소문자, 한글/공백 자동 제거. 실시간 검증</td><td>영문+숫자+특수문자포함 8~20자로 입력해주세요 / 사용 가능한 형식입니다.</td></tr>
+      <tr><td>비밀번호 확인</td><td>비밀번호와 실시간 대조</td><td>비밀번호가 일치하지 않습니다. / 비밀번호가 일치합니다.</td></tr>
+      <tr><td>이메일</td><td>주소@도메인 형식 실시간 검증. 인증메일 발송 시 인증코드 행 표시, 버튼 “재발송”으로 변경, 5분 타이머. 재발송/이메일 수정 시 초기화. 인증코드 6자리 영문+숫자(자동 대문자). 인증 성공 시 “인증완료” 비활성화. 데모에서는 발송된 코드가 화면에 표시됨</td><td>올바른 이메일 형식이 아닙니다. / 유효한 형식입니다 / 인증메일을 발송했습니다.<br>알럿: 정상·미입력·불일치</td></tr>
+      <tr><td>개인정보수집 동의</td><td>체크박스 직접 체크 불가 → 알럿. “보기” 팝업 본문 하단까지 스크롤 시 동의 버튼 활성화, 동의 시 자동 체크</td><td>본문 확인이 필수입니다. 보기버튼을 클릭하시기 바랍니다.</td></tr>
+      <tr><td>다음</td><td>위 항목 순서대로 검사 후 첫 오류 항목에 알럿·포커스. 전부 통과 시 가입완료 이동</td><td>-</td></tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>

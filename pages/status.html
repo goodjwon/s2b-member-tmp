@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인회원 사전가입 현황안내 | S2B 개인회원 사전가입</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/s2b.css">
+</head>
+<body>
+<div class="popup wide">
+  <div class="popup-head">
+    <div class="logo"><img src="../assets/img/sub_ci.gif" alt="S2B"><span>행정안전부 고시 제2023-16호<br><img src="../assets/img/ci_s2b_3.gif" alt="교육기관전자조달시스템"></span></div>
+  </div>
+  <div class="popup-title">개인회원 사전가입 현황안내</div>
+  <div class="popup-body">
+    <p class="tit"><span class="badge blue">현황</span> [부산가상중학교] 에 등록된 개인회원 현황입니다.</p> <!-- [JSP] [${session.instNm}] -->
+    <p class="desc">최신 가입순으로 페이지당 10명이 표시되며, 개인정보는 마스킹 처리됩니다.</p>
+
+    <table class="list-tbl">
+      <colgroup><col style="width:50px"><col style="width:90px"><col style="width:130px"><col><col style="width:160px"><col style="width:80px"></colgroup>
+      <thead><tr><th>No.</th><th>이름</th><th>아이디</th><th>이메일</th><th>가입일시</th><th>조회</th></tr></thead>
+      <tbody>
+        <!-- [JSP] <c:forEach> 목록. 최신순 10건/페이지, 마스킹은 서버에서 처리(앞2/뒤2자리 제외). 빈 행은 10행 고정 시에만 필요 -->
+        <tr><td>1</td><td>윤*</td><td>yh**34</td><td>yh**34@gmail.com</td><td>2026-10-18 15:01:15</td><td><a href="my-info.html" class="btn xs">조회</a></td></tr>
+        <tr><td>2</td><td>한*선</td><td>ha*****un</td><td>ha*****un@naver.com</td><td>2026-09-25 18:24:55</td><td><a href="my-info.html" class="btn xs">조회</a></td></tr>
+        <tr><td>3</td><td>노*미</td><td>no**mi</td><td>no**mi@daum.net</td><td>2026-08-25 14:00:22</td><td><a href="my-info.html" class="btn xs">조회</a></td></tr>
+        <tr><td>4</td><td class="empty" colspan="5">-</td></tr>
+        <tr><td>5</td><td class="empty" colspan="5">-</td></tr>
+        <tr><td>6</td><td class="empty" colspan="5">-</td></tr>
+        <tr><td>7</td><td class="empty" colspan="5">-</td></tr>
+        <tr><td>8</td><td class="empty" colspan="5">-</td></tr>
+        <tr><td>9</td><td class="empty" colspan="5">-</td></tr>
+        <tr><td>10</td><td class="empty" colspan="5">-</td></tr>
+      </tbody>
+    </table>
+    <div class="paging"><!-- [JSP] 페이징 컴포넌트로 교체 (총 건수/페이지 파라미터 page) -->
+      <a href="#" class="arrow">«</a><a href="#" class="arrow">‹</a>
+      <a href="#" class="on">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a>
+      <a href="#" class="arrow">›</a><a href="#" class="arrow">»</a>
+    </div>
+
+    <div class="notice">
+      <p><b class="txt-red">신 S2B는 개인회원 가입이 필수입니다. 사전에 미리 등록하세요</b></p>
+      <p>- 아래의 개인회원 계정은 신 S2B에서 로그인 가능합니다. (2027년 1월 Pre오픈시 로그인 가능)</p>
+      <p>- 현 S2B에서는 위의 개인회원 계정으로는 로그인 불가</p>
+      <p>- 계약담당자는 Pre 오픈시 기관 소속의 회원들에 대한 권한범위 설정이 가능합니다.</p>
+      <p>- 회원정보 수정은 Pre오픈시 로그인하여 가능합니다.</p>
+    </div>
+
+    <p class="question">S2B 개인회원 사전가입을 하셨습니까?</p>
+  </div>
+  <div class="popup-foot">
+    <button type="button" class="btn primary" onclick="closePopup()">예</button> <!-- [JSP] 창 닫힘. 새로고침마다 재노출(닫기버튼 없음) -->
+    <a href="phone-auth.html" class="btn">아니오</a>
+  </div>
+</div>
+<script src="../assets/js/s2b.js"></script>
+</body>
+</html>
